@@ -18,5 +18,13 @@ pipeline {
         }
       }
     }
+
+      stage('Docker Build and Push') {
+      steps {
+        sh 'printenv'
+        sh 'docker build -t vieenodp/numeric-app:""GIT_COMMIT"" .'
+        sh 'docker push vieenodp/numeric-app:""GIT_COMMIT""'
+      }
+    }
   }
 }
